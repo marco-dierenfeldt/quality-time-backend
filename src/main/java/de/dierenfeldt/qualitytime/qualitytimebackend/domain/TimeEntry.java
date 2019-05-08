@@ -13,9 +13,10 @@ import java.time.LocalDateTime;
 public class TimeEntry {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
+    @Column(name = "ID", nullable = false)
     private Long id;
 
     @Basic(optional = false)
