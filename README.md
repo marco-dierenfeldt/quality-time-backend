@@ -1,2 +1,2 @@
 # quality-time-backend
-Backend for time tracking app (Demo do play with AWS)
+Backend for time tracking app (Demo to play with AWS)
