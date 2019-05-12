@@ -22,12 +22,11 @@ public class TimeBookingResource {
         );
     }
 
-    @RequestMapping(value = "/create/{beginDate}/{endDate}/{description}", method = RequestMethod.GET)
-    public TimeEntry create(@PathVariable("beginDate") String beginDate, @PathVariable("endDate") String endDate, @PathVariable("description") String description) throws InvalidRequestException {
-        Optional<TimeEntry> timeEntry = timeEntryService.create(beginDate, endDate, description);
-        return timeEntry.orElseThrow(
-                () -> new InvalidRequestException("Wrong dateTime format for Date value(s): beginDate=" + beginDate + ", endDate=" + endDate)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public TimeEntry create(@RequestBody TimeEntry timeEntry) throws InvalidRequestException {
+        Optional<TimeEntry> timeEntryOptional = timeEntryService.create(timeEntry);
+        return timeEntryOptional.orElseThrow(
+                () -> new InvalidRequestException("Can not persist TimeEntry=" + timeEntry.toString())
         );
     }
-
 }
