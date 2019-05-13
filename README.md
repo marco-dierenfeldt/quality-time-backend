@@ -46,3 +46,5 @@ JSON (application/json) Body:
 GET http://localhost:8080/timebooking/1
 
 should work
+=======
+Backend for time tracking app (Demo to play with AWS)
