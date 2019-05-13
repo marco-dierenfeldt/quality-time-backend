@@ -6,9 +6,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +25,14 @@ public class TimeEntryService {
         return timeEntryRepository.findById(id);
     }
 
+    public Optional<TimeEntry> create(TimeEntry newTimeEntry) {
+        try {
+            return Optional.ofNullable(timeEntryRepository.save(newTimeEntry));
+        } catch (Exception ex) {
+            return Optional.empty();
+        }
+    }
+
     public Optional<TimeEntry> create(String beginDate, String endDate, String description) {
         try {
             TimeEntry timeEntry = new TimeEntry(
@@ -33,7 +44,5 @@ public class TimeEntryService {
         } catch (DateTimeParseException ex) {
             return Optional.empty();
         }
-
     }
-
 }
