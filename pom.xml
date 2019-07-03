@@ -11,12 +11,12 @@
 	<groupId>de.dierenfeldt.quality-time</groupId>
 	<artifactId>quality-time-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>quality-time-backend</name>
 	<description>Quality-time-backend project for Spring Boot</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<querydsl.version>3.6.6</querydsl.version>
 	</properties>
 	<dependencies>
