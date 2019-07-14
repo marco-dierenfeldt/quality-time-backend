@@ -3,7 +3,8 @@
 #
 FROM alpine:latest
 RUN apk update
-RUN apk add --no-cache bash ca-certificates nano zip curl openssh openssl openjdk8
+#RUN apk add --no-cache bash ca-certificates nano zip curl openssh openssl openjdk8
+RUN apk add --no-cache bash openjdk8
 
 #
 # copy the deployable to the target directory
@@ -24,5 +25,3 @@ EXPOSE 8080
 # Starting the Spring Boot Application
 #
 ENTRYPOINT ["java", "-jar", "qtb.jar"]
-
-CMD [""]
